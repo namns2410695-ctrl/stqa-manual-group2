@@ -71,7 +71,7 @@
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 |-------|-------------------|---------------|---------------|-----------------|------------------|-----|---------|
-| | | | | | | | |
+| TC-01 | Đăng nhập thành công — Thủ thư| Đã mở stqa.rbc.vn, chưa đăng nhập | 1. Nhập email. 2. Nhập mật khẩu. 3. Nhấn Đăng nhập. | Email: librarian@library.com / PW: admin123 | Chuyển sang trang chính. AppBar hiển thị tên "Thủ thư" + vai trò "Librarian". Tab "Thành viên" xuất hiện. | REQ-01 | EP
 
 ---
 
