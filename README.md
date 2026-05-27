@@ -15,7 +15,7 @@ Hệ thống cần kiểm thử: **Quản lý mượn sách Thư viện ABC** �
 
 | | Thông tin |
 |---|---|
-| **Tên nhóm** | `<!-- VD: Nhóm 1 -->` |
+| **Tên nhóm** | `group2` |
 | **Lớp** | `<!-- VD: SE001.P11 -->` |
 | **Học kỳ** | `<!-- VD: HK2 2025-2026 -->` |
 

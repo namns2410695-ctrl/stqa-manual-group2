@@ -6,7 +6,7 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!-- Tên nhóm -->` |
+| **Nhóm** | `<!group 2` |
 | **Ngày tạo** | `<!-- DD/MM/YYYY -->` |
 | **Hệ thống** | https://stqa.rbc.vn |
 | **Tham chiếu** | SRS v1.0 |
