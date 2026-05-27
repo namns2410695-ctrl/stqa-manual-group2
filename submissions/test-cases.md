@@ -54,11 +54,45 @@
 | Số sách đang mượn? | < 3 (BVA: 0, 1, 2) | MEM006 (0 sách) | Cho phép mượn |
 | | = 3 (BVA: giới hạn) | MEM đã mượn 3 sách | Từ chối, thông báo vượt giới hạn |
 
-### IDM — `<!-- Nhóm tự bổ sung cho REQ-05 đến REQ-08 -->`
+### IDM — Check Overdue (REQ-06)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
-|---|---|---|---|
-| `<!-- Nhóm tự điền -->` | | | |
+| Characteristic | Block (Partition) | Representative Value | Expected Result |
+| -------------- | ----------------- | -------------------- | --------------- |
+| Due date compared to today? | Before today | BR001  | Flagged as "Overdue" |
+| | Equal to today  | New record with dueDate = today | Must be flagged as "Overdue" |
+| | After today  | BR003  | Not flagged, stays "Borrowing" |
+| Current record status? | Borrowing | BR001 | Can be flagged |
+| | Returned | BR002 | Status unchanged |
+| Who performs the action? | Librarian  | librarian@library.com | Action available |
+| | Member  | ba.nguyen@email.com | Button not visible |
+
+### IDM — Member Management (REQ-07)
+
+| Characteristic | Block (Partition) | Representative Value | Expected Result |
+| -------------- | ----------------- | -------------------- | --------------- |
+| Full name valid? | Has content | `Nguyen Van Test` | Created successfully |
+| | Empty  | `""` | Rejected with error |
+| Email format valid? | Valid  | `test@email.com` | Created successfully |
+| | Missing @ | `testemail.com` | Rejected — invalid email |
+| | Has @ but missing . in domain | `test@email` | Rejected — invalid email |
+| | Empty  | `""` | Rejected with error |
+| Email unique? | Not yet in system | `new.member@email.com` | Created successfully |
+| | Already exists in system | `ba.nguyen@email.com` | Rejected — duplicate email |
+| Who performs the action? | Librarian  | librarian@library.com | Action available |
+| | Member  | ba.nguyen@email.com | Tab not visible |
+
+### IDM — Borrow Records (REQ-08)
+
+| Characteristic | Block (Partition) | Representative Value | Expected Result |
+| -------------- | ----------------- | -------------------- | --------------- |
+| Viewer's role? | Librarian | librarian@library.com | Can view all records |
+| | Member | ba.nguyen@email.com | Can only view own records |
+| Whose record is it? | Own record | ba.nguyen views BR001 | Displayed correctly |
+| | Another member's record | ba.nguyen views BR002 (dam.tran) | Not displayed |
+| Record status displayed? | Borrowing | BR001, BR003 | Shows "Borrowing" |
+| | Returned | BR002, BR004, BR005 | Shows "Returned" |
+| | Overdue | BR001 after overdue check | Shows "Overdue" |
+
 
 > 💡 **Gợi ý kỹ thuật**: Sử dụng **Phân lớp tương đương (EP)** cho các phân vùng rời rạc, **Phân tích giá trị biên (BVA)** cho các phân vùng số (ví dụ: giới hạn 3 sách). Xem textbook §6.1–6.3.
 
