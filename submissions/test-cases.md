@@ -6,8 +6,8 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!group 2` |
-| **Ngày tạo** | `<!-- DD/MM/YYYY -->` |
+| **Nhóm** | `group 2` |
+| **Ngày tạo** | `27/05/2026` |
 | **Hệ thống** | https://stqa.rbc.vn |
 | **Tham chiếu** | SRS v1.0 |
 
